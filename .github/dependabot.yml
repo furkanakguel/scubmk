@@ -1,14 +1,16 @@
 version: 2
+# Routine version-update PRs are paused to avoid notification noise.
+# This does not disable Dependabot vulnerability alerts or secret scanning.
 updates:
   - package-ecosystem: npm
     directory: /
     schedule:
-      interval: weekly
-    open-pull-requests-limit: 5
-    groups:
-      development:
-        dependency-type: development
+      interval: monthly
+    open-pull-requests-limit: 0
+    rebase-strategy: disabled
   - package-ecosystem: github-actions
     directory: /
     schedule:
       interval: monthly
+    open-pull-requests-limit: 0
+    rebase-strategy: disabled
