@@ -34,7 +34,9 @@ Panelin sayfalı veri dışa aktarımı **tam yedek değildir**; şifre ve eriş
 
 ## Yayın
 
-Bu repoda otomatik canlı deploy workflow'u yoktur. `main` kontrolleri tamamlandıktan sonra Sites yayın akışı ayrıca yürütülür. `.openai/hosting.json` ve platform Vite eklentisini koruyun. Migration'ları önce temiz yerel veritabanında ve mevcut şema yükseltmesinde doğrulayın; geçmiş migration'ları değiştirmeyin.
+Bu repo yerel geliştirme için bağımsız derlenir; `npm run build` sunucu ve istemci çıktılarını `dist/` altında üretir. Yerel depolama bağlantıları `vite.config.ts` içinde tanımlıdır. Eski Sites yayın manifesti ve metadata paketleme adımı bu kaynaktan kaldırılmıştır; bu kopya eski Sites yayın aracına doğrudan girdi değildir.
+
+GitHub'da otomatik canlı deploy workflow'u yoktur. Mevcut barındırılmış sürüm bu değişiklikle güncellenmez. Yeni bir yayın için hedef hosting'in gerçek D1/R2 kaynakları, ortam ayarları ve kimlik katmanı ayrıca yapılandırılmalıdır. Yerel veritabanı kimliği üretim kaynağı olarak kullanılmaz. Migration'ları önce temiz yerel veritabanında ve mevcut şema yükseltmesinde doğrulayın; geçmiş migration'ları değiştirmeyin.
 
 Başka hosting'e taşıma öncesinde D1/R2, zamanlanmış temizlik, ortam sırları ve güvenilir kimlik proxy'si yeniden kurulmalıdır. İnternetten gelen `oai-authenticated-user-*` başlıkları tek başına kimlik kanıtı değildir.
 

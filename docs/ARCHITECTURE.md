@@ -54,4 +54,6 @@ Bu alanlarda yeni davranış eklerken ilgili form/pencere/iş kuralını ayrı m
 
 ## Platform kodu
 
-`scripts/vite/`, `scripts/connector-preview/`, `lib/connector*` ve `vendor/` platform entegrasyonunu içerir. Lisanslarını koru. `.openai/hosting.json` kaynak bağlantısıdır; sır saklama yeri değildir. `docs/archive/` eski tasarım notlarıdır, güncel kurulum talimatı değildir.
+`scripts/vite/sites-vite-plugin.ts` yalnızca loopback üzerinde geliştirme kimliği sağlar; derleme sırasında hosting metadata'sı üretmez. `vite.config.ts`, `DB` ve `BUCKET` bağlantılarını doğrudan tanımlar. Yerel kaynak adlarını veya veritabanı kimliğini değiştirmek farklı bir yerel veri deposuna geçiş anlamına gelebilir.
+
+`scripts/connector-preview/`, `lib/connector*` ve `vendor/` mevcut platform entegrasyonunu içerir. Üçüncü taraf lisanslarını koru. `docs/archive/` eski tasarım notlarıdır, güncel kurulum talimatı değildir.

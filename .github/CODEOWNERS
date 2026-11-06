@@ -13,5 +13,6 @@
 /app/*auth* @furkanakguel @VoskaDev @IVeridisQuo
 /db/ @furkanakguel @VoskaDev @IVeridisQuo
 /drizzle/ @furkanakguel @VoskaDev @IVeridisQuo
-/.openai/ @furkanakguel @VoskaDev @IVeridisQuo
+/vite.config.ts @furkanakguel @VoskaDev @IVeridisQuo
+/scripts/vite/ @furkanakguel @VoskaDev @IVeridisQuo
 /worker/ @furkanakguel @VoskaDev @IVeridisQuo

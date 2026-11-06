@@ -76,7 +76,7 @@ GitHub Actions bu kontrolleri push ve PR'larda çalıştırır. `test:unit`, ça
 
 ## Teknoloji ve yayın
 
-React + TypeScript, App Router düzeni, Vinext/Vite, Cloudflare Worker, D1/SQLite ve R2. Sites entegrasyonu `.openai/hosting.json`, `worker/` ve Vite yapılandırmasında korunur. GitHub'a kod göndermek canlı siteyi otomatik yayımlamaz; yayın ve erişim izinleri ayrı yönetilir.
+React + TypeScript, App Router düzeni, Vinext/Vite, Cloudflare Worker, D1/SQLite ve R2. Yerel `DB` ve `BUCKET` bağlantıları `vite.config.ts` içinde tanımlıdır; derleme için hosting hesabı veya proje manifesti gerekmez. `npm run dev:team` siteyi localhost üzerinde çalıştırır. GitHub'a kod göndermek canlı siteyi otomatik yayımlamaz; üretim kaynakları ve erişim izinleri ayrıca yapılandırılır.
 
 Gerçek hesaplar, anahtarlar, biletler, yüklenen fotoğraflar ve veritabanı yedekleri bu depoda bulunmaz. Otomatik e-posta için ayrıca gönderim servisi kurulmalıdır. [Operasyon rehberi](docs/OPERATIONS.md) mevcut sınırları açıklar.
 

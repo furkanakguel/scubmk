@@ -4,7 +4,7 @@
 
 - Node.js 24 (`.nvmrc`). nvm kullanıyorsan repo içinde `nvm install` ve `nvm use`.
 - Git ve npm. Bağımlılık sürümlerini `package-lock.json` belirler; temiz kurulumda `npm ci` kullan.
-- D1 ve R2 yerelde Wrangler tarafından taklit edilir. Canlı hesaba veya API anahtarına ihtiyaç yoktur.
+- D1 ve R2 yerelde Wrangler tarafından taklit edilir. Canlı hesaba, hosting manifestine veya API anahtarına ihtiyaç yoktur. Bağlantı adları `vite.config.ts` içinde tanımlıdır.
 
 ## İlk çalıştırma
 
