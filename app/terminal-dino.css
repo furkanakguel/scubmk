@@ -1,0 +1,406 @@
+.dino-mark {
+  width: 80px;
+  height: 72px;
+  display: block;
+  flex: none;
+  overflow: visible;
+  color: #c3d39e;
+  --dino-ink: #111811;
+}
+.dino-mark-ground {
+  fill: #3d4839;
+}
+.dino-mark-eye {
+  fill: var(--dino-ink);
+  transform-origin: 47px 24px;
+}
+.dino-mark-lid {
+  fill: var(--dino-ink);
+  display: none;
+}
+.dino-mark-shade {
+  fill: #71865b;
+}
+.dino-mark-lit {
+  fill: #e3e8c5;
+}
+.dino-mark-notice,
+.dino-mark-check {
+  display: none;
+  fill: #d8b274;
+}
+.dino-mark-head {
+  transform-origin: 13px 10px;
+}
+.dino-mark-tail {
+  transform-origin: 10px 16px;
+}
+.dino-mark-arm {
+  transform-origin: 14px 12px;
+}
+.dino-mark-body {
+  transform-origin: 11px 18px;
+}
+.dino-mark[data-active='true'] .dino-mark-eye {
+  animation: dino-guide-blink 6s steps(1, end) infinite;
+}
+.dino-mark[data-reaction='read'] .dino-mark-head {
+  transform: rotate(6deg);
+}
+.dino-mark[data-reaction='read'] .dino-mark-arm {
+  transform: translate(1px, -1px);
+}
+.dino-mark[data-reaction='error'] {
+  color: #dcc19a;
+}
+.dino-mark[data-reaction='error'] .dino-mark-notice {
+  display: block;
+}
+.dino-mark[data-reaction='error'] .dino-mark-head {
+  transform: rotate(-8deg);
+}
+.dino-mark[data-reaction='error'][data-active='true'] .dino-mark-body {
+  animation: dino-guide-stop 0.45s ease-out;
+}
+.dino-mark[data-reaction='success'] .dino-mark-check {
+  display: block;
+  fill: #a9c485;
+}
+.dino-mark[data-reaction='success'][data-active='true'] .dino-mark-head {
+  animation: dino-guide-nod 0.6s ease-in-out;
+}
+.dino-mark[data-reaction='success'] .dino-mark-arm {
+  transform: rotate(-25deg);
+}
+.dino-mark[data-active='false'] * {
+  animation-play-state: paused !important;
+}
+@keyframes dino-guide-blink {
+  0%,
+  44%,
+  48%,
+  100% {
+    opacity: 1;
+  }
+  46% {
+    opacity: 0;
+  }
+}
+@keyframes dino-guide-stop {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-1px);
+  }
+  60% {
+    transform: translateX(0.5px);
+  }
+}
+@keyframes dino-guide-nod {
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+  50% {
+    transform: rotate(9deg);
+  }
+}
+.os-shell-dock {
+  flex: none;
+  min-width: 0;
+  padding: 0 24px 9px;
+  background: #10160f;
+  border-top: 1px solid #303c28;
+  container-type: inline-size;
+  max-height: 64%;
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #53634b #111713;
+}
+.os-shell-v3 .os-shell-dock .os-shell-form {
+  margin: 0;
+  padding: 10px 0 2px;
+  gap: 9px;
+}
+.os-shell-dock .os-shell-suggestions {
+  margin: 8px 0 0;
+}
+.os-shell-v3 .os-shell-dock .os-shell-form > label {
+  flex-wrap: wrap;
+  column-gap: 8px;
+  row-gap: 0;
+}
+.os-shell-v3 .os-shell-dock .os-shell-form input {
+  flex: 1;
+  min-width: 120px;
+}
+.os-shell-welcome .dino-mark {
+  width: 90px;
+  height: 81px;
+}
+.dino-guide {
+  display: flex;
+  gap: 16px;
+  position: relative;
+  padding: 17px 0 15px;
+  border-bottom: 1px solid #303c28;
+  color: #d6decc;
+  min-width: 0;
+  font-family: var(--mono);
+  text-align: left;
+  --guide-accent: #b7c995;
+}
+.dino-guide[data-tone='error'] {
+  --guide-accent: #d3b187;
+}
+.dino-guide-character {
+  align-self: center;
+  flex: none;
+  width: 72px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.dino-guide-character > .dino-mark {
+  width: 72px;
+  height: 65px;
+}
+.dino-guide-character > span {
+  font: 8px var(--mono);
+  letter-spacing: 0.2em;
+  color: #8f9c82;
+  margin-top: 0;
+}
+.dino-guide-content {
+  flex: 1;
+  min-width: 0;
+}
+.dino-guide-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: 20px;
+  margin-bottom: 5px;
+}
+.dino-guide-heading > span {
+  font: 8px/1.4 var(--mono);
+  color: #8d9b7e;
+  letter-spacing: 0.09em;
+}
+.dino-guide .dino-guide-dismiss {
+  display: grid;
+  place-items: center;
+  background: transparent;
+  border: 0;
+  color: #8d9b7e;
+  min-width: 28px;
+  min-height: 28px;
+  font: 18px/1 var(--mono);
+  margin: -7px -5px -4px 0;
+}
+.dino-guide-dismiss:hover {
+  color: #e6eacc !important;
+}
+.dino-guide-copy strong {
+  font: 500 12px/1.4 var(--mono);
+  color: var(--guide-accent);
+  display: block;
+}
+.dino-guide-copy p {
+  font: 10px/1.65 var(--mono);
+  color: #a8b29e;
+  max-width: 60ch;
+  margin: 5px 0 0;
+  overflow-wrap: anywhere;
+}
+.dino-guide-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 9px 18px;
+  margin-top: 11px;
+}
+.dino-guide-steps {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin: 0;
+  padding: 0;
+  flex-shrink: 0;
+}
+.dino-guide-steps li {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  font: 9px var(--mono);
+  color: #7c8a6d;
+}
+.dino-guide-steps i {
+  font: normal 8px var(--mono);
+  width: 14px;
+  height: 14px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #4b5840;
+}
+.dino-guide-steps li[aria-current] {
+  color: #cfddae;
+}
+.dino-guide-steps li[aria-current] i {
+  border-color: #b7c995;
+}
+.dino-guide-steps li[data-done='true'] {
+  color: #b1c690;
+}
+.dino-guide-steps li[data-done='true'] i {
+  border-color: #536745;
+  background: #26321f;
+}
+.dino-guide .dino-guide-command,
+.dino-guide .dino-guide-start {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 100%;
+  min-height: 32px;
+  padding: 7px 10px;
+  border: 1px solid #4d5d3f;
+  background: #1b2516;
+  color: #d3dfba;
+  font: 10px/1.4 var(--mono);
+  border-radius: 1px;
+}
+.dino-guide-command code {
+  font: 10px/1.4 var(--mono);
+  overflow-wrap: anywhere;
+  min-width: 0;
+}
+.dino-guide-command > span,
+.dino-guide-start > span {
+  font: 8px var(--mono);
+  white-space: nowrap;
+  color: #9dac8a;
+}
+.dino-guide button:hover {
+  border-color: #a1b485;
+  background: #26341d;
+}
+.dino-guide button:focus-visible {
+  outline: 2px solid #c5d6a7;
+  outline-offset: 3px;
+}
+.dino-hint {
+  border-top: 1px solid #39432d;
+  border-bottom: 1px solid #39432d;
+  margin: 18px 0 16px;
+  background: #12180f;
+  color: #becba8;
+}
+.dino-hint summary {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 12px;
+  min-height: 44px;
+  list-style: none;
+  cursor: pointer;
+  font: 11px var(--mono);
+}
+.dino-hint summary::-webkit-details-marker {
+  display: none;
+}
+.dino-hint summary .dino-mark {
+  width: 36px;
+  height: 32px;
+}
+.dino-hint summary > span {
+  margin-left: auto;
+  color: #95a47f;
+  font: 10px var(--mono);
+}
+.dino-hint summary > span:before {
+  content: '+';
+}
+.dino-hint[open] summary > span:before {
+  content: '−';
+}
+.dino-hint summary:focus-visible {
+  outline: 2px solid #c5d6a7;
+  outline-offset: 2px;
+}
+.dino-hint p {
+  margin: 0;
+  padding: 0 18px 15px 57px;
+  font: 11px/1.85 var(--mono);
+  color: #becba8;
+  max-width: 72ch;
+}
+.dino-hint[open] .dino-mark-head {
+  transform: rotate(6deg);
+}
+@container (max-width:430px) {
+  .dino-guide {
+    gap: 9px;
+    padding: 11px 0;
+  }
+  .dino-guide-character {
+    width: 46px;
+    align-self: flex-start;
+    padding-top: 19px;
+  }
+  .dino-guide-character > .dino-mark {
+    width: 49px;
+    height: 45px;
+  }
+  .dino-guide-character > span {
+    font-size: 7px;
+  }
+  .dino-guide-copy strong {
+    font-size: 11px;
+  }
+  .dino-guide-copy p {
+    font-size: 10px;
+    line-height: 1.5;
+  }
+  .dino-guide-bottom {
+    gap: 9px;
+  }
+  .dino-guide-heading > span {
+    font-size: 7px;
+  }
+  .dino-guide-command {
+    width: 100%;
+    justify-content: space-between;
+    min-height: 38px !important;
+  }
+  .dino-guide-steps {
+    gap: 12px;
+  }
+  .dino-guide .dino-guide-dismiss {
+    min-width: 32px;
+    min-height: 32px;
+  }
+}
+@media (max-width: 600px) {
+  .os-shell-dock {
+    padding: 0 12px 7px;
+  }
+  .dino-hint p {
+    padding-left: 15px;
+  }
+  .os-shell-v3 .os-shell-dock .os-shell-form {
+    gap: 4px;
+  }
+  .os-shell-v3 .os-shell-dock .os-shell-form > label > span:not(.sr-only) {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dino-mark * {
+    animation: none !important;
+  }
+}

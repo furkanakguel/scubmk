@@ -1,0 +1,385 @@
+/* Constrain the scrolling surface, while preserving horizontal code/table scrollers inside it. */
+html,
+body {
+  max-width: 100%;
+  overflow-x: clip;
+  overscroll-behavior-x: none;
+}
+.atlas-overlay,
+.modal,
+.a-modal {
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+}
+.atlas-body,
+.atlas-chapters,
+.atlas-chapters > a,
+.atlas-link-title,
+.atlas-bottom,
+.atlas-bottom > div,
+.modal-title,
+.a-modal-title,
+.a-form-grid > * {
+  min-width: 0;
+}
+.atlas-bottom > div {
+  flex-wrap: wrap;
+}
+.atlas-chapters > a {
+  overflow-wrap: anywhere;
+}
+.modal-title h2,
+.a-modal h2 {
+  overflow-wrap: anywhere;
+}
+.os-managed-body,
+.os-shell-scroll,
+.os-folder,
+.os-explorer-content {
+  min-width: 0;
+  max-width: 100%;
+  overscroll-behavior-x: none;
+}
+.run-machine,
+.run-layout,
+.run-toolbar,
+.run-utilities,
+.run-power > div,
+.run-inputs > div {
+  min-width: 0;
+}
+.run-focus-label {
+  font: 11px var(--sans);
+}
+@media (max-width: 600px) {
+  .atlas-overlay {
+    width: 100%;
+    max-width: 100%;
+    padding-inline: 20px;
+  }
+  .atlas-link-title {
+    font-size: clamp(27px, 8.7vw, 39px);
+  }
+  .atlas-bottom > div {
+    gap: 16px 20px;
+  }
+  .atlas-chapters > a.active .atlas-link-title {
+    transform: translateX(4px);
+  }
+  .modal,
+  .a-modal {
+    max-height: calc(100dvh - 28px);
+    width: 100%;
+    padding: 22px 18px;
+    overflow-wrap: anywhere;
+  }
+  .modal-backdrop {
+    padding: 14px;
+  }
+  .modal .form-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .modal input,
+  .modal select,
+  .modal textarea,
+  .a-modal input,
+  .a-modal select,
+  .a-modal textarea,
+  .atlas-overlay input {
+    font-size: 16px;
+  }
+  .run-page {
+    width: calc(100% - 16px);
+  }
+  .run-toolbar {
+    gap: 8px;
+    padding: 8px 10px;
+  }
+  .run-utilities {
+    margin-left: auto;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .run-utilities > button {
+    min-height: 40px;
+  }
+  .run-utilities .run-repair-sound {
+    display: none;
+  }
+  .run-utilities .run-sound > span {
+    display: inline;
+    font-size: 10px;
+  }
+  .run-focus-label {
+    font-size: 10px;
+  }
+  .run-hud {
+    min-height: 65px;
+    padding: 12px 15px;
+    gap: 19px;
+  }
+  .run-hud > div > span {
+    margin-bottom: 6px;
+  }
+  .run-stage > canvas {
+    aspect-ratio: 700/720;
+  }
+  .run-overlay {
+    padding: 27px;
+  }
+  .club-site .run-overlay h2 {
+    font-size: 45px;
+  }
+  .club-site .run-overlay > p {
+    font-size: 12px;
+  }
+  .run-inputs button {
+    min-height: 62px;
+    font-size: 16px;
+  }
+  .run-inputs {
+    padding: 12px;
+  }
+  .run-power {
+    padding: 10px 14px;
+    gap: 8px;
+    flex-wrap: nowrap;
+  }
+  .run-power > div:first-child {
+    flex-basis: auto;
+    min-width: 0;
+  }
+  .run-power > div:first-child > svg {
+    display: none;
+  }
+  .run-power > div > div > span {
+    display: none;
+  }
+  .run-power .run-energy {
+    margin-left: auto;
+  }
+  .run-power > button {
+    min-width: 76px;
+    padding: 8px;
+  }
+  .run-power strong {
+    font-size: 10px;
+  }
+  .run-ability {
+    padding: 10px 5px;
+  }
+  .run-pace {
+    padding: 9px 14px;
+  }
+  .overclock.is-focused {
+    inset: 0;
+    width: 100%;
+    height: 100dvh;
+    max-height: 100dvh;
+    max-width: none;
+    margin: 0;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+  .is-focused .run-toolbar {
+    flex-shrink: 0;
+  }
+  .is-focused .run-layout {
+    display: flex;
+    flex: 1;
+    min-height: 0;
+  }
+  .is-focused .run-machine {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  .is-focused .run-board {
+    display: none;
+  }
+  .is-focused .run-hud {
+    flex-shrink: 0;
+  }
+  .is-focused .run-stage {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    flex: 1 0 320px;
+    min-height: max(320px, 66vw);
+  }
+  .is-focused .run-stage > canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: auto;
+  }
+  .is-focused .run-pace,
+  .is-focused .run-power,
+  .is-focused .run-loadout {
+    flex-shrink: 0;
+  }
+  .is-focused .run-ability {
+    padding: 7px 4px;
+  }
+  .is-focused .run-inputs {
+    position: sticky;
+    bottom: 0;
+    z-index: 4;
+    background: #172625;
+    flex-shrink: 0;
+  }
+  .is-focused .run-inputs > p {
+    display: none;
+  }
+  .is-focused .run-inputs button {
+    min-height: 58px;
+  }
+  .is-focused .run-submit {
+    flex-shrink: 0;
+  }
+  .is-focused .run-audio-message,
+  .is-focused .run-error {
+    flex-shrink: 0;
+  }
+  .os-managed-window .os-embedded-game .run-stage {
+    min-height: max(330px, 66cqw);
+    flex-basis: 330px;
+  }
+  .os-managed-window .os-embedded-game .run-inputs button {
+    min-height: 54px;
+    font-size: 14px;
+  }
+  .os-managed-window .os-embedded-game .run-toolbar {
+    flex-wrap: wrap;
+  }
+  .os-managed-window .os-embedded-game .run-utilities {
+    flex-wrap: nowrap;
+  }
+  .os-managed-window .os-embedded-game .run-repair-sound {
+    display: inline-flex;
+  }
+  .os-managed-window .os-embedded-game .run-sound > span {
+    display: none;
+  }
+}
+@media (max-width: 950px) and (orientation: landscape) and (max-height: 600px) {
+  .overclock.is-focused {
+    inset: 0;
+    width: 100%;
+    height: 100dvh;
+    max-width: none;
+    border: 0;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    padding-inline: env(safe-area-inset-left) env(safe-area-inset-right);
+  }
+  .is-focused .run-toolbar {
+    min-height: 40px;
+    padding: 3px 12px;
+    flex-shrink: 0;
+  }
+  .is-focused .run-layout {
+    display: block;
+  }
+  .is-focused .run-machine {
+    position: relative;
+  }
+  .is-focused .run-board,
+  .is-focused .run-loadout,
+  .is-focused .run-pace,
+  .is-focused .run-hud > div:not(.run-main-score),
+  .is-focused .run-inputs > p,
+  .is-focused .run-field-notes {
+    display: none;
+  }
+  .is-focused .run-hud {
+    position: absolute;
+    top: 8px;
+    left: 12px;
+    z-index: 3;
+    padding: 7px;
+    min-height: 45px;
+    border: 0;
+    background: #152623ce;
+    border-radius: 7px;
+    gap: 16px;
+  }
+  .is-focused .run-stage {
+    width: min(100%, calc((100dvh - 120px) * 1.86));
+    height: calc(100dvh - 120px);
+    min-height: 230px;
+    margin: auto;
+    flex: none;
+  }
+  .is-focused .run-stage > canvas {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: auto;
+  }
+  .is-focused .run-overlay {
+    padding: 20px 27px 20px 150px;
+  }
+  .is-focused .run-overlay h2 {
+    font-size: 34px;
+    margin: 8px 0;
+  }
+  .is-focused .run-overlay > p {
+    margin-bottom: 10px;
+    font-size: 10px;
+  }
+  .is-focused .run-intro-tip {
+    display: none;
+  }
+  .is-focused .run-result-score {
+    font-size: 42px;
+    margin: 6px 0;
+  }
+  .is-focused .run-power {
+    position: absolute;
+    bottom: 0;
+    left: 8px;
+    width: 35%;
+    height: 65px;
+    padding: 7px 9px;
+    border: 0;
+    background: transparent;
+    gap: 7px;
+  }
+  .is-focused .run-power > div:first-child {
+    display: none;
+  }
+  .is-focused .run-power .run-energy {
+    margin: 0;
+  }
+  .is-focused .run-power > button {
+    min-width: 70px;
+  }
+  .is-focused .run-inputs {
+    height: 70px;
+    padding: 7px 10px 7px 38%;
+    background: #172625;
+    display: block;
+  }
+  .is-focused .run-inputs > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 0;
+  }
+  .is-focused .run-inputs button {
+    min-height: 54px;
+  }
+}

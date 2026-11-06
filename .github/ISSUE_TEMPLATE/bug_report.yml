@@ -1,0 +1,21 @@
+name: Hata bildirimi
+description: Tekrarlanabilir bir sorunu bildir.
+title: '[Hata] '
+body:
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Nasıl tekrarlanıyor?
+      description: Sayfa, adımlar ve beklediğin sonuç. Şifre, bilet bağlantısı veya kişisel veri ekleme.
+    validations:
+      required: true
+  - type: input
+    id: browser
+    attributes:
+      label: Cihaz ve tarayıcı
+      placeholder: iPhone / Safari veya Windows / Chrome
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Ek bilgi
+      description: Varsa kişisel bilgilerden arındırılmış ekran görüntüsü veya hata çıktısı.

@@ -1,0 +1,16 @@
+name: Geliştirme önerisi
+description: Bir kullanıcı ihtiyacı veya teknik iyileştirme öner.
+title: '[Öneri] '
+body:
+  - type: textarea
+    id: need
+    attributes:
+      label: İhtiyaç
+      description: Kimin hangi işini kolaylaştıracak?
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Tamamlanma ölçütü
+      description: Hangi davranışları gördüğümüzde iş bitti diyeceğiz?

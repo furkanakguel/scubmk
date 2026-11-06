@@ -1,0 +1,17 @@
+# General maintainers. CODEOWNERS assigns reviewers, not folder-level access.
+* @furkanakguel @VoskaDev @IVeridisQuo
+
+# Chatbot delivery: Enes and Taylan; maintainers can also review integration.
+/features/chatbot/ @enesayd07 @taylandenizdev @VoskaDev @IVeridisQuo
+/app/api/chatbot/ @enesayd07 @taylandenizdev @VoskaDev @IVeridisQuo
+/scripts/verify-chatbot.mjs @enesayd07 @taylandenizdev @VoskaDev @IVeridisQuo
+/docs/CHATBOT.md @enesayd07 @taylandenizdev @VoskaDev @IVeridisQuo
+
+# Authentication, publishing, data schema and contributor permissions.
+/.github/ @furkanakguel @VoskaDev @IVeridisQuo
+/server/ @furkanakguel @VoskaDev @IVeridisQuo
+/app/*auth* @furkanakguel @VoskaDev @IVeridisQuo
+/db/ @furkanakguel @VoskaDev @IVeridisQuo
+/drizzle/ @furkanakguel @VoskaDev @IVeridisQuo
+/.openai/ @furkanakguel @VoskaDev @IVeridisQuo
+/worker/ @furkanakguel @VoskaDev @IVeridisQuo

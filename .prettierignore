@@ -1,0 +1,17 @@
+node_modules/
+dist/
+.next/
+.vinext/
+.wrangler/
+.sites-runtime/
+outputs/
+work/
+coverage/
+package-lock.json
+public/
+vendor/
+examples/
+drizzle/
+lib/connector*
+scripts/vite/
+scripts/connector-preview/
